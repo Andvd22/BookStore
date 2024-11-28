@@ -1,16 +1,24 @@
 package com.bookstore.project.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.http.HttpSession;
 import com.bookstore.project.domain.Cart;
 import com.bookstore.project.domain.CartDetail;
+import com.bookstore.project.domain.Order;
+import com.bookstore.project.domain.OrderDetail;
 import com.bookstore.project.domain.Product;
 import com.bookstore.project.domain.User;
 import com.bookstore.project.repository.CartDetailRepository;
 import com.bookstore.project.repository.CartRepository;
+import com.bookstore.project.repository.OrderDetailRepository;
+import com.bookstore.project.repository.OrderRepository;
 import com.bookstore.project.repository.ProductRepository;
 
 @Service
@@ -19,13 +27,18 @@ public class ProductService {
     private final CartRepository cartRepository;
     private final CartDetailRepository cartDetailRepository;
     private final UserService userService;
+    private final OrderRepository orderRepository;
+    private final OrderDetailRepository orderDetailRepository;
 
     public ProductService(ProductRepository productRepository, CartRepository cartRepository,
-            CartDetailRepository cartDetailRepository, UserService userService) {
+            CartDetailRepository cartDetailRepository, UserService userService,
+            OrderDetailRepository orderDetailRepository, OrderRepository orderRepository) {
         this.productRepository = productRepository;
         this.cartRepository = cartRepository;
         this.cartDetailRepository = cartDetailRepository;
         this.userService = userService;
+        this.orderDetailRepository = orderDetailRepository;
+        this.orderRepository = orderRepository;
     }
 
     public Product handelSaveProduct(Product product) {
@@ -37,6 +50,24 @@ public class ProductService {
         return this.productRepository.findAll();
     }
 
+    public Page<Product> fetchSubPageAbleProducts(Pageable page) {
+        return this.productRepository.findAll(page);
+    }
+
+    public Page<Product> fetchPageAbleProducts(Pageable page) {
+        return this.productRepository.findAll(page);
+    }
+
+    public int fetchProductQuantities() {
+        int qty = 0;
+        List<Product> products = fetchProducts();
+        List<Integer> quantities = new ArrayList<>();
+        for (Product product : products) {
+            qty += product.getQuantity();
+        }
+        return qty;
+    }
+
     public Optional<Product> fetchProductById(long id) {
         return this.productRepository.findById(id);
     }
@@ -45,7 +76,7 @@ public class ProductService {
         this.productRepository.deleteById(id);
     }
 
-    public void handleAddProductToCart(String email, long productId, HttpSession session) {
+    public void handleAddProductToCart(String email, long productId, HttpSession session, long quantity) {
         // check user đã có cart hay chưa ? nếu chưa -> tạo mới
         User user = this.userService.getUserByEmail(email);
         if (user != null) {
@@ -71,7 +102,7 @@ public class ProductService {
                     cd.setCart(cart);
                     cd.setProduct(realProduct);
                     cd.setPrice(realProduct.getPrice());
-                    cd.setQuantity(1);
+                    cd.setQuantity(quantity);
 
                     this.cartDetailRepository.save(cd);
 
@@ -81,7 +112,7 @@ public class ProductService {
                     this.cartRepository.save(cart);
                     session.setAttribute("sum", s);
                 } else {
-                    oldDetail.setQuantity(oldDetail.getQuantity() + 1);
+                    oldDetail.setQuantity(oldDetail.getQuantity() + quantity);
                     this.cartDetailRepository.save(oldDetail);
                 }
 
@@ -127,4 +158,63 @@ public class ProductService {
             }
         }
     }
+
+    public void handlePlaceOrder(User user, HttpSession session, String receiverName, String receiverAddress,
+            String receiverPhone) {
+
+        // b1 get cart by user
+        Cart cart = this.cartRepository.findByUser(user);
+        if (cart != null) {
+            List<CartDetail> cartDetails = cart.getCartDetails();
+            if (cartDetails != null) {
+                // creater order
+                Order order = new Order();
+                order.setUser(user);
+                order.setReceiverName(receiverName);
+                order.setReceiverAddress(receiverAddress);
+                order.setReceiverPhone(receiverPhone);
+                order = this.orderRepository.save(order);
+                double sum = 0;
+                for (CartDetail cd : cartDetails) {
+                    sum += cd.getPrice();
+                }
+                order.setTotalPrice(sum);
+                order = this.orderRepository.save(order);
+                // create orderDetail
+
+                for (CartDetail cd : cartDetails) {
+                    OrderDetail orderDetail = new OrderDetail();
+                    orderDetail.setOrder(order);
+                    orderDetail.setProduct(cd.getProduct());
+                    orderDetail.setPrice(cd.getPrice());
+                    orderDetail.setQuantity(cd.getQuantity());
+                    this.orderDetailRepository.save(orderDetail);
+                }
+                // b2 delete cart_detail and cart
+                for (CartDetail cd : cartDetails) {
+                    this.cartDetailRepository.deleteById(cd.getId());
+                }
+                this.cartRepository.deleteById(cart.getId());
+                // b3 update session
+                session.setAttribute("sum", 0);
+            }
+        }
+    }
+
+    public List<Product> searchProductsByName(String name) {
+        return productRepository.searchByName(name);
+    }
+
+    // public List<User> searchUsersByName(String name) {
+    // return userRepository.searchByName(name);
+    // }
+
+    // public List<Product> searchBooks(String query) {
+    // // Chuyển query thành chữ thường (case-insensitive)
+    // String searchQuery = "%" + query.toLowerCase() + "%";
+
+    // // Tìm kiếm sách theo tên hoặc tác giả
+    // return productRepository.findByTitleLikeOrAuthorLike(searchQuery,
+    // searchQuery);
+    // }
 }

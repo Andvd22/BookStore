@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -66,7 +66,7 @@
                                                         </c:set>
                                                         <form:input class="form-control ${not empty errorPassword ? 'is-invalid' : ''}" id="inputPasswordConfirm" type="password" placeholder="Confirm password" path="confirmPassword"/>
                                                         <label for="inputPasswordConfirm">Confirm Password</label>
-                                                        ${errorPassword}
+                                                        <!-- ${errorPassword} -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -88,8 +88,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/js/scripts.js"></script>
     </body>
-</html> -->
-
+</html>
+<!-- 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -286,10 +286,10 @@
             <span class="details">Email</span>
             <input type="text" placeholder="Enter your email" required>
           </div>
-          <!-- <div class="input-box">
+           <div class="input-box">
             <span class="details">Phone Number</span>
             <input type="text" placeholder="Enter your number" required>
-          </div> -->
+          </div> ...
           <div class="input-box">
             <span class="details">Password</span>
             <input type="text" placeholder="Enter your password" required>
@@ -326,4 +326,4 @@
     </div>
   </div>
 </body>
-</html>
+</html> -->

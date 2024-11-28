@@ -17,28 +17,28 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
     <style>
-        /* Table and Button Styling */
+        /* Global Color and Font Adjustments */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Raleway', sans-serif;
             background-color: #f4f6f9;
         }
 
-        h1, h3 {
-            color: #1c2b36;
+        /* Header Styling */
+        .sb-nav-fixed .sb-topnav {
+            background-color: #1c2b36;
         }
 
-        /* Breadcrumb Link Color */
-        .breadcrumb-item a {
-            color: #004080;
-            text-decoration: none;
+        .sb-nav-fixed .sb-topnav h1 {
+            color: #fff;
         }
 
-        .breadcrumb-item a:hover {
-            color: #0056b3;
-            text-decoration: underline;
+        /* Table Header */
+        table thead {
+            background-color: #008077;
+            color: #fff;
         }
 
-        /* Button Styling */
+        /* Buttons Styling */
         .btn-primary {
             background-color: #004080;
             border-color: #004080;
@@ -61,26 +61,37 @@
             border-color: #dc3545;
         }
 
-        /* Table Styling */
-        .table thead {
-            background-color: #008077;
-            color: #fff;
-        }
-
+        /* Table Row Hover Effect */
         table tbody tr:hover {
             background-color: #f1f5f8;
         }
 
-        .table th, .table td {
+        
+
+        /* Breadcrumb */
+        .breadcrumb-item a {
+            color: #004080;
+        }
+
+        /* Card Styling */
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Table Text Adjustments */
+        table th, table td {
             color: #333;
             font-weight: 500;
         }
 
-    
+        
 
-        /* Border Radius for Buttons */
-        .btn {
-            border-radius: 5px;
+        /* Link Hover Effects */
+        a:hover {
+            text-decoration: none;
+            color: #007bff;
         }
     </style>
 </head>
@@ -131,6 +142,25 @@
                                         </c:forEach>                     
                                     </tbody> 
                                 </table>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item">
+                                            <a class="${(1) eq currentPage ? 'disabled page-link' : 'page-link'}" href="/admin/product?page=${currentPage-1}" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+
+                                       <c:forEach begin="0" end = "${totalPages-1}" varStatus="loop">
+                                        <li class="page-item"><a class="${(loop.index + 1) eq currentPage ? 'active page-link' : 'page-link'}"
+                                                href="/admin/product?page=${loop.index +1}">${loop.index +1}</a></li>
+                                        </c:forEach>
+
+                                            <a class="${(totalPages) eq currentPage ? 'disabled page-link' : 'page-link'}" href="/admin/product?page=${currentPage+1}" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>

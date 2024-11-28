@@ -8,7 +8,7 @@ import com.bookstore.project.service.validator.RegisterChecked;
 @RegisterChecked
 public class RegisterDTO {
     @NotNull
-    @Size(min = 3, message = "FisrtName phải có tối thiểu 3 kí tự")
+    @Size(min = 1, message = "FisrtName phải có tối thiểu 1 kí tự")
     private String firstName;
     private String lastName;
     @NotNull

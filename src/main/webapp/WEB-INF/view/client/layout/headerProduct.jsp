@@ -17,6 +17,10 @@
                 </div>
                 <div class="d-flex m-3 me-0">
                     <c:if test="${not empty pageContext.request.userPrincipal}">
+                        <form action="/search" method="get">
+                            <input type="text" name="name" placeholder="Tìm kiếm sách" value="${key}" />
+                            <button type="submit">Tìm kiếm</button>
+                        </form>
                         
                         <a href="/cart" class="position-relative me-4 my-auto">
                             <i class="fa fa-shopping-bag fa-2x text-success"></i> 

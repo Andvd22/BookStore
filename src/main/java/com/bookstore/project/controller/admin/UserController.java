@@ -1,9 +1,13 @@
 package com.bookstore.project.controller.admin;
 
 import java.util.List;
+import java.util.Optional;
 import java.io.*;
 import java.io.IOException;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +38,24 @@ public class UserController {
     }
 
     @RequestMapping("/admin/user")
-    public String getUserPage(Model model) {
+    public String getUserPage(Model model,
+            @RequestParam(name = "page", defaultValue = "1") Optional<String> pageOptional) {
+        int page = 1;
+        try {
+            if (pageOptional.isPresent()) {
+                page = Integer.parseInt(pageOptional.get());
+            } else {
+
+            }
+        } catch (Exception e) {
+
+        }
+        Pageable pageable = PageRequest.of(page - 1, 2);
+        Page<User> usersPage = this.userService.fetchPageAbleUsers(pageable);
+        List<User> list = usersPage.getContent();
+        model.addAttribute("users", list);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", usersPage.getTotalPages());
         List<User> users = this.userService.getAllUsers();
         System.out.println(">>> check users: " + users);
         model.addAttribute("users1", users);

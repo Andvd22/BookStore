@@ -64,7 +64,7 @@
     </div>
     <!-- Spinner End -->
 
-    <jsp:include page="../layout/header.jsp"/>
+    <jsp:include page="../layout/headerProduct.jsp"/>
 
     <!-- Modal Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,22 +85,118 @@
     </div>
     <!-- Modal Search End -->
 
-    <jsp:include page="../layout/banner.jsp"/>
-
     <!-- Sách Nổi Bật Start -->
+
+   
+     
     <div class="container-fluid book-highlight py-5">
         <div class="container py-5">
             <div class="tab-class text-center">
                 <div class="row g-4">
                     <div class="col-lg-4 text-start">
-                        <h1>Sách Nổi Bật</h1>
+                        
                     </div>
                     <div class="col-lg-8 text-end">
-                        <a href="/products" class="btn btn-secondary">Tất cả sản phẩm</a>
+                        <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                            <li class="nav-item">
+                                <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="/products">
+                                   
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="tab-content">
-                    <div id="tab-1" class="tab-pane fade show p-0 active">
+
+                <!-- <div class="row g-4 fruite">
+                    <div class="col-12 col-md-4">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="mb-2"><b>Tác giả</b></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="author-1" value="J.K. ROWLING">
+                                    <label class="form-check-label" for="author-1">J.K. Rowling</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="author-2" value="J.R.R. TOLKIEN">
+                                    <label class="form-check-label" for="author-2">J.R.R. Tolkien</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="author-3" value="GEORGE R.R. MARTIN">
+                                    <label class="form-check-label" for="author-3">George R.R. Martin</label>
+                                </div>
+                                
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-2"><b>Thể loại</b></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="category-1" value="FANTASY">
+                                    <label class="form-check-label" for="category-1">Fantasy</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="category-2" value="SCIENCE-FICTION">
+                                    <label class="form-check-label" for="category-2">Science Fiction</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="category-3" value="MYSTERY">
+                                    <label class="form-check-label" for="category-3">Mystery</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="category-4" value="ROMANCE">
+                                    <label class="form-check-label" for="category-4">Romance</label>
+                                </div>
+                                
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-2"><b>Giới hạn tuổi</b></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="age-1" value="TỰ_DO">
+                                    <label class="form-check-label" for="age-1">Tự do</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="age-2" value="DƯỚI-18">
+                                    <label class="form-check-label" for="age-2">Dưới 18 tuổi</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="age-3" value="18-30">
+                                    <label class="form-check-label" for="age-3">Từ 18 - 30 tuổi</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="age-4" value="30-50">
+                                    <label class="form-check-label" for="age-4">Từ 30 - 50 tuổi</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="age-5" value="TRÊN-50">
+                                    <label class="form-check-label" for="age-5">Trên 50 tuổi</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-2"><b>Sắp xếp theo</b></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="sort-1" value="gia-tang-dan" name="radio-sort">
+                                    <label class="form-check-label" for="sort-1">Giá tăng dần</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="sort-2" value="gia-giam-dan" name="radio-sort">
+                                    <label class="form-check-label" for="sort-2">Giá giảm dần</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="sort-3" value="khong-sap-xep" name="radio-sort">
+                                    <label class="form-check-label" for="sort-3">Không sắp xếp</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4">
+                                    Lọc Sản Phẩm
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                
+
+
+                <div class="col-12 col-md-12 text-center">
+                        
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
@@ -134,36 +230,36 @@
                                     <div class="pagination d-flex justify-content-center mt-5">
                                         <li class="page-item">
                                             <a class="${1 eq currentPage ? 'disabled page-link' : 'page-link'}"
-                                                href="/?page=${currentPage - 1}" aria-label="Previous">
+                                                href="/products?page=${currentPage - 1}" aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
                                             </a>
                                         </li>
                                         <c:forEach begin="0" end="${totalPages - 1}" varStatus="loop">
                                             <li class="page-item">
                                                 <a class="${(loop.index + 1) eq currentPage ? 'active page-link' : 'page-link'}"
-                                                    href="/?page=${loop.index + 1}">
+                                                    href="/products?page=${loop.index + 1}">
                                                     ${loop.index + 1}
                                                 </a>
                                             </li>
                                         </c:forEach>
                                         <li class="page-item">
                                             <a class="${totalPages eq currentPage ? 'disabled page-link' : 'page-link'}"
-                                                href="/?page=${currentPage + 1}" aria-label="Next">
+                                                href="/products?page=${currentPage + 1}" aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
                                             </a>
                                         </li>
                                 </div>
                                 
                             </div>
-                        </div>
+                        
                     </div>
                 </div>      
             </div>
         </div>
     </div>
+ 
     <!-- Sách Nổi Bật End-->
 
-    <jsp:include page="../layout/feature.jsp"/>
     <jsp:include page="../layout/footer.jsp"/>
 
     <!-- Back to Top -->

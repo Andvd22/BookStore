@@ -15,10 +15,13 @@
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
+        body {
+                        font-family: 'Raleway', sans-serif;
+                        background-color: #f4f6f9;
+                    }
         /* Updated color scheme */
         .dashboard-card {
             border-radius: 10px;
-            background-color: #f0f4f8; /* Light background color */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
@@ -37,7 +40,6 @@
         }
 
         .table-container {
-            background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -68,13 +70,46 @@
     <div id="layoutSidenav">
         <jsp:include page="../layout/sidebar.jsp"/>
         <div id="layoutSidenav_content">
-            <main>
+            <main>              
 
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Bảng Điều Khiển</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Bảng Điều Khiển</li>
                     </ol>
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6">
+                            <div class="card bg-primary text-white mb-4">
+                                <div class="card-body">Số lượng User (${countUsers})</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    <a class="small text-white stretched-link" href="/admin/user">View
+                                        Details</a>
+                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="card bg-danger text-white mb-4">
+                                <div class="card-body">Số lượng Product (${countProducts})</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    <a class="small text-white stretched-link" href="/admin/product">View
+                                        Details</a>
+                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="card bg-success text-white mb-4">
+                                <div class="card-body">Số lượng Order (${countOrders})</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    <a class="small text-white stretched-link" href="/admin/order">View
+                                        Details</a>
+                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                     <!-- Dashboard Summary Cards -->
                     <div class="row mb-4">
@@ -82,7 +117,7 @@
                             <div class="dashboard-card">
                                 <i class="fas fa-book fa-2x"></i>
                                 <h5>Sách trong kho</h5>
-                                <p>2,345</p>
+                                <p>(${countqtyProducts})</p>
                             </div>
                         </div>
                         <div class="col-md-3">

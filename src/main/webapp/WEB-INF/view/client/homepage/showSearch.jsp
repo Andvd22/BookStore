@@ -64,7 +64,7 @@
     </div>
     <!-- Spinner End -->
 
-    <jsp:include page="../layout/header.jsp"/>
+    <jsp:include page="../layout/headerProduct.jsp"/>
 
     <!-- Modal Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,20 +85,11 @@
     </div>
     <!-- Modal Search End -->
 
-    <jsp:include page="../layout/banner.jsp"/>
-
     <!-- Sách Nổi Bật Start -->
     <div class="container-fluid book-highlight py-5">
         <div class="container py-5">
             <div class="tab-class text-center">
-                <div class="row g-4">
-                    <div class="col-lg-4 text-start">
-                        <h1>Sách Nổi Bật</h1>
-                    </div>
-                    <div class="col-lg-8 text-end">
-                        <a href="/products" class="btn btn-secondary">Tất cả sản phẩm</a>
-                    </div>
-                </div>
+                
                 <div class="tab-content">
                     <div id="tab-1" class="tab-pane fade show p-0 active">
                         <div class="row g-4">
@@ -131,28 +122,7 @@
                                             </div>
                                             </div>
                                     </c:forEach>
-                                    <div class="pagination d-flex justify-content-center mt-5">
-                                        <li class="page-item">
-                                            <a class="${1 eq currentPage ? 'disabled page-link' : 'page-link'}"
-                                                href="/?page=${currentPage - 1}" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <c:forEach begin="0" end="${totalPages - 1}" varStatus="loop">
-                                            <li class="page-item">
-                                                <a class="${(loop.index + 1) eq currentPage ? 'active page-link' : 'page-link'}"
-                                                    href="/?page=${loop.index + 1}">
-                                                    ${loop.index + 1}
-                                                </a>
-                                            </li>
-                                        </c:forEach>
-                                        <li class="page-item">
-                                            <a class="${totalPages eq currentPage ? 'disabled page-link' : 'page-link'}"
-                                                href="/?page=${currentPage + 1}" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                </div>
+                                    
                                 
                             </div>
                         </div>
@@ -162,8 +132,6 @@
         </div>
     </div>
     <!-- Sách Nổi Bật End-->
-
-    <jsp:include page="../layout/feature.jsp"/>
     <jsp:include page="../layout/footer.jsp"/>
 
     <!-- Back to Top -->
