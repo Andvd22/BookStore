@@ -29,6 +29,10 @@ public class OrderService {
         return this.orderRepository.findAll();
     }
 
+    public List<OrderDetail> fetchAllOrderDetails() {
+        return this.orderDetailRepository.findAll();
+    }
+
     public Optional<Order> fetchOrderById(long id) {
         return this.orderRepository.findById(id);
     }

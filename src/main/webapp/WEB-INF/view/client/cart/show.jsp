@@ -35,6 +35,37 @@
 
                     <!-- Template Stylesheet -->
                     <link href="/client/css/style.css" rel="stylesheet">
+
+                    <style>   
+                    
+                    .form-control:hover,
+.form-control:focus {
+    border-color: #2c3e50 !important; 
+    box-shadow: 0 0 5px rgba(44, 62, 80, 0.5) !important;
+}
+                        .page-link.active,
+        .page-link:hover {
+    background-color: #2c3e50 !important; /* Dark blue color */
+    color: #FFF !important; /* White text */
+}
+    .primary-color {
+    background-color: #2c3e50 !important;
+}
+
+.btn-primary{
+    background-color: #2c3e50 !important;
+    color: #FFF;
+}
+
+a{
+    color: #2c3e50 !important;
+    color: #FFF;
+}
+
+.text-primary {
+    color: #2c3e50 !important;
+}
+                    </style>
                 </head>
 
                 <body>
@@ -52,12 +83,6 @@
                     <div class="container-fluid py-5">
                         <div class="container py-5">
                             <div class="mb-3">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Chi Tiết Giỏ Hàng</li>
-                                    </ol>
-                                </nav>
                             </div>
                             <div class="table-responsive">
                                 <table class="table">

@@ -7,7 +7,8 @@
         <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
             <div class="row g-4">
                 <div class="col-lg-3">
-                    <h1 class="text-light mb-0">Bookstore</h1>
+                    <h1 class="text-light mb-0">
+                        ChillShop</h1>
                     <p class="text-muted mb-0">Chất lượng là ưu tiên hàng đầu</p>
                 </div>
             </div>
@@ -16,7 +17,8 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="text-light mb-3">Về Chúng Tôi</h4>
-                    <p class="text-muted">Bookstore chuyên cung cấp các tựa sách uy tín và chất lượng từ khắp nơi trên thế giới. Đảm bảo sách chính hãng với giá cả hợp lý.</p>
+                    <p class="text-muted">
+                        ChillShop chuyên cung cấp các tựa sách uy tín và chất lượng từ khắp nơi trên thế giới. Đảm bảo sách chính hãng với giá cả hợp lý.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -30,9 +32,9 @@
             <div class="col-lg-3 col-md-6">
                 <div class="d-flex flex-column text-start footer-item">
                     <h4 class="text-light mb-3">Tài Khoản</h4>
-                    <a class="text-muted mb-2" href="#">Đăng nhập</a>
-                    <a class="text-muted mb-2" href="#">Đăng ký</a>
-                    <a class="text-muted" href="#">Giỏ hàng</a>
+                    <a class="text-muted mb-2" href="/login">Đăng nhập</a>
+                    <a class="text-muted mb-2" href="/register">Đăng ký</a>
+                    <a class="text-muted" href="/cart">Giỏ hàng</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -40,7 +42,7 @@
                     <h4 class="text-light mb-3">Liên Hệ</h4>
                     <p class="text-muted">An</p>
                     <p class="text-muted">Facebook: <a href="https://www.facebook.com/du.ban.linh.ko" target="_blank" style="color: #27ae60;">Theo dõi tại đây</a></p>
-                    <p class="text-muted">Email: support@bookstore.vn</p>
+                    <p class="text-muted">Email: support@ChillShop.vn</p>
                 </div>
             </div>
         </div>
@@ -56,7 +58,7 @@
                 <span class="text-light"><a href="https://www.youtube.com/watch?v=v0UPeVlcb1A" target="_blank" style="color: #27ae60;"><i class="fas fa-copyright text-light me-2"></i>Youtube</a>, All rights reserved.</span>
             </div>
             <div class="col-md-6 my-auto text-center text-md-end text-white-50">
-                Designed by <a class="text-muted" href="https://htmlcodex.com" style="color: #27ae60;">HTML Codex</a> Distributed by <a class="text-muted" href="https://themewagon.com" style="color: #27ae60;">ThemeWagon</a>
+                Designed by <a class="text-muted" href="https://htmlcodex.com" style="color: #27ae60;">ChillShop
             </div>
         </div>
     </div>

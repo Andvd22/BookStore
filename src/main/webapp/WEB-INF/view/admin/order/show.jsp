@@ -7,7 +7,7 @@
                 <meta charset="utf-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-                <meta name="description" content="bookshop" />
+                <meta name="description" content="chillshop" />
                 <meta name="author" content="" />
                 <title>Manager Orders</title>
                 <link href="/css/styles.css" rel="stylesheet" />
@@ -122,11 +122,15 @@
                                                 </thead>
                                                 <tbody>
                                                     <c:forEach var="order" items="${orders}">
+                                                        <c:set var="totalPrice" value="0" />
+            <c:forEach var="orderDetail" items="${order.orderDetails}">
+                <c:set var="totalPrice" value="${totalPrice + (orderDetail.price * orderDetail.quantity)}" />
+            </c:forEach>
                                                         <tr>
                                                             <th>${order.id}</th>
                                                             <td>
                                                                 <fmt:formatNumber type="number"
-                                                                    value="${order.totalPrice}" /> đ
+                                                                    value="${totalPrice}" /> đ
                                                             </td>
                                                             <td>${order.user.fullName}</td>
                                                             <td>${order.status}</td>
@@ -139,7 +143,7 @@
                                                                     class="btn btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
-                                                    </c:forEach>
+                                                    </c:forEach>                                                 
                                                 </tbody>
                                             </table>
                                             <nav aria-label="Page navigation example">
@@ -149,13 +153,18 @@
                                                             <span aria-hidden="true">&laquo;</span>
                                                         </a>
                                                     </li>
+
+                                                    <c:set var="validTotalPages" value="${totalPages}" />
+<c:if test="${totalPages <= 1}">
+    <c:set var="validTotalPages" value="1" />
+</c:if>
             
-                                                   <c:forEach begin="0" end = "${totalPages-1}" varStatus="loop">
+                                                   <c:forEach begin="0" end = "${validTotalPages-1}" varStatus="loop">
                                                     <li class="page-item"><a class="${(loop.index + 1) eq currentPage ? 'active page-link' : 'page-link'}"
                                                             href="/admin/order?page=${loop.index +1}">${loop.index +1}</a></li>
                                                     </c:forEach>
             
-                                                        <a class="${(totalPages) eq currentPage ? 'disabled page-link' : 'page-link'}" href="/admin/order?page=${currentPage+1}" aria-label="Next">
+                                                        <a class="${(validTotalPages) eq currentPage ? 'disabled page-link' : 'page-link'}" href="/admin/order?page=${currentPage+1}" aria-label="Next">
                                                             <span aria-hidden="true">&raquo;</span>
                                                         </a>
                                                     </li>

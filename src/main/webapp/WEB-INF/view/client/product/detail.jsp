@@ -32,6 +32,25 @@
 
         <!-- Template Stylesheet -->
         <link href="/client/css/style.css" rel="stylesheet">
+        <style>
+            .page-link.active,
+        .page-link:hover {
+    background-color: #2c3e50 !important; /* Dark blue color */
+    color: #FFF !important; /* White text */
+}
+    .primary-color {
+    background-color: #2c3e50 !important;
+}
+
+.btn-primary{
+    background-color: #2c3e50 !important;
+    color: #FFF;
+}
+
+.text-primary {
+    color: #2c3e50 !important;
+}
+        </style>
     </head>
 
     <body>
@@ -74,12 +93,6 @@
             <div class="container py-5">
                 <div class="row g-4 mb-5">
                     <div>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item" aria-current="page">Chi tiết sản phẩm</li>
-                            </ol>
-                        </nav>
                     </div>
                     <div class="col-lg-8 col-xl-9">
                         <div class="row g-4">
@@ -124,7 +137,7 @@
                                                     name="id" />
 
                                                 <input class="form-control d-none" type="text" name="quantity"
-                                                    id="cartDetails0.quantity" />
+                                                    id="cartDetails0.quantity" value="1"/>
                                                 <button
                                                     class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
                                                         class="fa fa-shopping-bag me-2 text-primary"></i>

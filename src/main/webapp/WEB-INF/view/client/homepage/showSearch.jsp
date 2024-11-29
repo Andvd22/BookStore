@@ -28,6 +28,24 @@
     <link href="/client/css/style.css" rel="stylesheet">
 
     <style>
+.page-link.active,
+        .page-link:hover {
+    background-color: #2c3e50 !important; /* Dark blue color */
+    color: #FFF !important; /* White text */
+}
+    .primary-color {
+    background-color: #2c3e50 !important;
+}
+
+.btn-primary{
+    background-color: #2c3e50 !important;
+    color: #FFF;
+}
+
+.text-primary {
+    color: #2c3e50 !important;
+}
+
         
     .fixed-size {
         width: 100%;                
@@ -101,10 +119,11 @@
                                                 <div class="fruite-img">
                                                     <img src="/images/product/${product.coverImage}" class="img-fluid w-100 rounded-top fixed-size" alt="">
                                                 </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Sách</div>
+                                               
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4 style="font-size: 15px;"><a href="/product/${product.id}">${product.title}</a></h4>
+                                                    <h4 style="font-size: 15px;"><a href="/product/${product.id}" style="color: #2c3e50 !important;">${product.title}</a></h4>
                                                     <p style="font-size: 13px;">${product.genre}</p>
+                                                    <p style="font-size: 13px;">${product.author}</p>
                                                     <div class="d-flex flex-lg-wrap justify-content-center flex-column">
                                                         <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark fw-bold mb-3">
                                                             <fmt:formatNumber type="number" value="${product.price}"/> đ

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bookstore.project.domain.CartDetail;
 import com.bookstore.project.domain.Order;
+import com.bookstore.project.domain.OrderDetail;
 import com.bookstore.project.service.OrderService;
 
 @Controller
@@ -46,6 +48,15 @@ public class OrderController {
         model.addAttribute("orders", orders);
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", pageOrders.getTotalPages());
+        
+
+        List<OrderDetail> list = this.orderService.fetchAllOrderDetails();
+        long totalPrice = 0;
+        for (OrderDetail x : list) {
+            totalPrice += (x.getPrice() * x.getQuantity());
+
+        }
+        model.addAttribute("list", list);
 
         return "admin/order/show";
     }

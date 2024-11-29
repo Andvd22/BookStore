@@ -129,7 +129,7 @@ public class HomePageController {
         } catch (Exception e) {
 
         }
-        Pageable pageable = PageRequest.of(page - 1, 10);
+        Pageable pageable = PageRequest.of(page - 1, 8);
         Page<Product> prs = this.productService.fetchSubPageAbleProducts(pageable);
         List<Product> products = prs.getContent();
         model.addAttribute("products", products);

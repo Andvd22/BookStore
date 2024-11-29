@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.servlet.http.HttpSession;
 import com.bookstore.project.domain.Cart;
@@ -159,43 +160,51 @@ public class ProductService {
         }
     }
 
+    @Transactional
     public void handlePlaceOrder(User user, HttpSession session, String receiverName, String receiverAddress,
             String receiverPhone) {
 
-        // b1 get cart by user
+        // B1: Lấy giỏ hàng của người dùng
         Cart cart = this.cartRepository.findByUser(user);
         if (cart != null) {
             List<CartDetail> cartDetails = cart.getCartDetails();
             if (cartDetails != null) {
-                // creater order
+                // Tạo đơn hàng
                 Order order = new Order();
                 order.setUser(user);
                 order.setReceiverName(receiverName);
                 order.setReceiverAddress(receiverAddress);
                 order.setReceiverPhone(receiverPhone);
-                order = this.orderRepository.save(order);
+                order.setStatus("PENDING");
+
+                // Tính tổng giá trị đơn hàng
                 double sum = 0;
                 for (CartDetail cd : cartDetails) {
                     sum += cd.getPrice();
                 }
                 order.setTotalPrice(sum);
-                order = this.orderRepository.save(order);
-                // create orderDetail
 
+                // Lưu đơn hàng vào cơ sở dữ liệu một lần duy nhất
+                // Chỉ cần gọi save một lần, không cần gọi lại sau khi thêm chi tiết đơn hàng
+                order = this.orderRepository.save(order);
+
+                // Tạo chi tiết đơn hàng (OrderDetail)
                 for (CartDetail cd : cartDetails) {
                     OrderDetail orderDetail = new OrderDetail();
-                    orderDetail.setOrder(order);
+                    orderDetail.setOrder(order); // Liên kết chi tiết với đơn hàng
                     orderDetail.setProduct(cd.getProduct());
                     orderDetail.setPrice(cd.getPrice());
                     orderDetail.setQuantity(cd.getQuantity());
-                    this.orderDetailRepository.save(orderDetail);
+                    this.orderDetailRepository.save(orderDetail); // Lưu chi tiết đơn hàng
                 }
-                // b2 delete cart_detail and cart
+
+                // B2: Xóa các chi tiết giỏ hàng và giỏ hàng sau khi đặt hàng
                 for (CartDetail cd : cartDetails) {
                     this.cartDetailRepository.deleteById(cd.getId());
                 }
                 this.cartRepository.deleteById(cart.getId());
-                // b3 update session
+
+                // B3: Cập nhật lại session
                 session.setAttribute("sum", 0);
             }
         }

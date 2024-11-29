@@ -72,10 +72,10 @@
             <div class="col-lg-6">
                 <h2 class="mb-3" style="color: #8A6D4B;">Giới Thiệu Về Chúng Tôi</h2>
                 <p style="color: #5B7F72;">
-                    Tại Bookstore, chúng tôi mang đến cho bạn một kho tàng tri thức với hàng ngàn cuốn sách từ mọi lĩnh vực và thể loại. Chúng tôi tin rằng sách không chỉ là một nguồn kiến thức mà còn là cầu nối giúp con người tìm thấy niềm vui và sự thấu hiểu sâu sắc.
+                    Tại ChillShop, chúng tôi mang đến cho bạn một kho tàng tri thức với hàng ngàn cuốn sách, truyện từ mọi lĩnh vực và thể loại. Chúng tôi tin rằng sách không chỉ là một nguồn kiến thức mà còn là cầu nối giúp con người tìm thấy niềm vui và sự thấu hiểu sâu sắc.
                 </p>
                 <p style="color: #5B7F72;">
-                    Với sứ mệnh phát triển văn hóa đọc và nâng cao tri thức cộng đồng, Bookstore cam kết cung cấp các tựa sách chất lượng cao, cập nhật liên tục và đáp ứng nhu cầu của tất cả độc giả.
+                    Với sứ mệnh phát triển văn hóa đọc và nâng cao tri thức cộng đồng, ChillShop cam kết cung cấp các tựa sách, truyện chất lượng cao, cập nhật liên tục và đáp ứng nhu cầu của tất cả độc giả.
                 </p>
                 <!-- <a href="#" class="btn rounded-pill px-4" style="background-color: #2C3E50; color: white;">Liên hệ tư vấn viên của chúng tôi để biết thêm chi tiết</a> -->
                  <!-- Tư Vấn Viên Button with Link to "Liên hệ ngay" -->
@@ -97,7 +97,7 @@
     <div class="container py-5">
         <div class="text-center mb-5">
             <h2 class="section-title mb-3" style="color: #8A6D4B;">Lý Do Chọn Chúng Tôi</h2>
-            <p style="color: #5B7F72;">Bookstore không chỉ đơn thuần là một cửa hàng sách mà còn là một nơi kết nối tri thức và con người.</p>
+            <p style="color: #5B7F72;">ChillShop không chỉ đơn thuần là một cửa hàng truyện mà còn là một nơi kết nối tri thức và con người.</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-3">
@@ -105,7 +105,7 @@
                     <div class="icon mb-3">
                         <i class="fas fa-book fa-3x" style="color: #8A6D4B;"></i>
                     </div>
-                    <h5 style="color: #8A6D4B;">Kho Sách Phong Phú</h5>
+                    <h5 style="color: #8A6D4B;">Kho Truyện Phong Phú</h5>
                     <p class="text-muted mb-0" style="color: #5B7F72;">Hơn 10,000 tựa sách từ mọi thể loại và lĩnh vực.</p>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                         <i class="fas fa-shield-alt fa-3x" style="color: #8A6D4B;"></i>
                     </div>
                     <h5 style="color: #8A6D4B;">Thanh Toán An Toàn</h5>
-                    <p class="text-muted mb-0" style="color: #5B7F72;">Bảo mật thông tin, hỗ trợ nhiều phương thức thanh toán.</p>
+                    <p class="text-muted mb-0" style="color: #5B7F72;">Bảo mật thông tin, hỗ trợ 1 phương thức thanh toán.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -133,7 +133,7 @@
                         <i class="fas fa-thumbs-up fa-3x" style="color: #8A6D4B;"></i>
                     </div>
                     <h5 style="color: #8A6D4B;">Uy Tín Và Chất Lượng</h5>
-                    <p class="text-muted mb-0" style="color: #5B7F72;">Sách chính hãng 100% từ các nhà xuất bản uy tín.</p>
+                    <p class="text-muted mb-0" style="color: #5B7F72;">Truyện chính hãng 100% từ các nhà xuất bản uy tín.</p>
                 </div>
             </div>
         </div>

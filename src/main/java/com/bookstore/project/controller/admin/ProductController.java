@@ -47,7 +47,7 @@ public class ProductController {
         } catch (Exception e) {
 
         }
-        Pageable pageable = PageRequest.of(page - 1, 2);
+        Pageable pageable = PageRequest.of(page - 1, 5);
         Page<Product> prs = this.productService.fetchPageAbleProducts(pageable);
         List<Product> listProducts = prs.getContent();
         model.addAttribute("products", listProducts);

@@ -13,26 +13,22 @@
                 <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active rounded">
-                            <img src="/client/img/book-category-3.png" class="img-fluid rounded" style="width: 600px; height: 300px; object-fit: cover;" alt="First slide">
-                            <a href="#" class="btn px-4 py-2" style="background-color: #6c757d; color: #fff; border-radius: 0.5rem;">Trinh thám</a>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTa4c5iI9MJmLx7sxRkQrFqQT3tTqMrLUhww&s" class="img-fluid rounded" style="width: 600px; height: 300px; object-fit: cover;" alt="First slide">
+                           
                         </div>
                         <div class="carousel-item rounded">
-                            <img src="/client/img/book-category-2.png" class="img-fluid rounded" style="width: 600px; height: 300px; object-fit: cover;" alt="Second slide">
-                            <a href="#" class="btn px-4 py-2" style="background-color: #6c757d; color: #fff; border-radius: 0.5rem;">Khoa học viễn tưởng</a>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR76l9TI0eFJ5DGc2mmPQJK0T3wFsWdlnFLQ&s" class="img-fluid rounded" style="width: 600px; height: 300px; object-fit: cover;" alt="Second slide">
+                            
                         </div>
                         <div class="carousel-item rounded">
-                            <img src="/client/img/book-category-1.png" class="img-fluid rounded" style="width: 600px; height: 300px; object-fit: cover;" alt="Third slide">
-                            <a href="#" class="btn px-4 py-2" style="background-color: #6c757d; color: #fff; border-radius: 0.5rem;">Truyện tranh</a>
+                            <img src="https://ila-duhoc.edu.vn/wp-content/uploads/2024/09/anh-dai-dien-126-780x450.jpg" class="img-fluid rounded" style="width: 600px; height: 300px; object-fit: cover;" alt="Third slide">
+                           
+                        </div>
+                        <div class="carousel-item rounded">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTylXctn7J2MCHBrbrl0RkhpY1t6bPXPQycFQ&s" class="img-fluid rounded" style="width: 600px; height: 300px; object-fit: cover;" alt="Second slide">
+                            
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev" style="background-color: rgba(108,117,125,0.2); border-radius: 50%;">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next" style="background-color: rgba(108,117,125,0.2); border-radius: 50%;">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
         </div>

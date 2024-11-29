@@ -48,7 +48,12 @@ public class ItemController {
 
         this.productService.handleAddProductToCart(email, productId, session, 1);
 
-        return "redirect:/";
+        String referer = request.getHeader("Referer");
+        if (referer != null && referer.contains("/products")) {
+            return "redirect:/products";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/cart")
